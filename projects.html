@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PROJECT_NODES | Navigation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#68217a",
+              "surface-container": "#1a1a1a",
+              "outline-variant": "#4e434f"
+            },
+            fontFamily: {
+              headline: ["Space Grotesk", "sans-serif"],
+              body: ["Inter", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+</head>
+<body class="bg-[#0f0f0f] text-white font-body min-h-screen flex flex-col">
+
+    <nav class="w-full border-b border-[#4e434f]/20 bg-[#131313]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-headline font-black tracking-tighter text-xl">
+                KAVY <span class="text-primary-container">//</span> PROJECTS
+            </a>
+            <a href="index.html" class="text-sm hover:text-primary-container transition-colors font-headline uppercase tracking-widest">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center py-20 px-6">
+        <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <a href="plantcare.html" class="group relative bg-[#131313] border border-[#4e434f]/30 p-8 rounded-2xl hover:border-primary-container/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-6">potted_plant</span>
+                <h2 class="font-headline text-2xl font-bold mb-4 italic">ROOT_NODE // PLANT_CARE</h2>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Automated hydration tracking and telemetry dashboard for biological assets.</p>
+                <div class="flex items-center text-xs font-headline tracking-widest text-primary-container group-hover:translate-x-2 transition-transform uppercase">
+                    Access Interface <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                </div>
+            </a>
+
+            <a href="pack2.html" class="group relative bg-[#131313] border border-[#4e434f]/30 p-8 rounded-2xl hover:border-primary-container/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-6">notifications_active</span>
+                <h2 class="font-headline text-2xl font-bold mb-4 italic">NUGET // TOAST_UI</h2>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Non-blocking notification framework for professional WPF application interfaces.</p>
+                <div class="flex items-center text-xs font-headline tracking-widest text-primary-container group-hover:translate-x-2 transition-transform uppercase">
+                    View Package <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                </div>
+            </a>
+
+            <a href="pack1.html" class="group relative bg-[#131313] border border-[#4e434f]/30 p-8 rounded-2xl hover:border-primary-container/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-6">layers</span>
+                <h2 class="font-headline text-2xl font-bold mb-4 italic">NUGET // CUSTOM_POPUP</h2>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Modernized dark-themed modal system for streamlined user interaction logic.</p>
+                <div class="flex items-center text-xs font-headline tracking-widest text-primary-container group-hover:translate-x-2 transition-transform uppercase">
+                    View Package <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="p-12 border-t border-[#4e434f]/20 text-center">
+        <p class="text-zinc-600 text-xs tracking-widest uppercase">Select a node to initialize project documentation</p>
+    </footer>
+
+</body>
+</html>

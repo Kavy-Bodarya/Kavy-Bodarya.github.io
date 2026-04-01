@@ -1,0 +1,536 @@
+```html
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ROOT_NODE // TOASTUI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "secondary-container": "#484646",
+                "surface-container-highest": "#353535",
+                "on-tertiary-fixed-variant": "#45464c",
+                "on-surface-variant": "#d2c2d0",
+                "on-secondary-fixed": "#1c1b1b",
+                "primary-fixed-dim": "#f4aeff",
+                "on-secondary-container": "#b8b4b4",
+                "on-tertiary-container": "#aeaeb5",
+                "on-primary-fixed": "#340042",
+                "tertiary-fixed": "#e3e2e9",
+                "on-tertiary": "#2f3035",
+                "surface-tint": "#f4aeff",
+                "on-primary-fixed-variant": "#6d277f",
+                "inverse-on-surface": "#303030",
+                "primary-container": "#68217a",
+                "primary-fixed": "#fdd6ff",
+                "surface-dim": "#131313",
+                "surface-container-high": "#2a2a2a",
+                "secondary-fixed-dim": "#c9c6c5",
+                "surface-container": "#1f2020",
+                "outline-variant": "#4e434f",
+                "inverse-surface": "#e4e2e1",
+                "on-surface": "#e4e2e1",
+                "on-secondary-fixed-variant": "#484646",
+                "on-secondary": "#313030",
+                "on-background": "#e4e2e1",
+                "error": "#ffb4ab",
+                "on-primary": "#540767",
+                "tertiary-fixed-dim": "#c6c6cc",
+                "on-primary-container": "#e191f0",
+                "surface-container-low": "#1b1c1c",
+                "primary": "#f4aeff",
+                "tertiary": "#c6c6cc",
+                "error-container": "#93000a",
+                "background": "#131313",
+                "tertiary-container": "#414248",
+                "on-error": "#690005",
+                "secondary": "#c9c6c5",
+                "surface-variant": "#353535",
+                "surface-bright": "#393939",
+                "secondary-fixed": "#e6e1e1",
+                "on-tertiary-fixed": "#1a1b20",
+                "on-error-container": "#ffdad6",
+                "surface": "#131313",
+                "inverse-primary": "#884099",
+                "outline": "#9b8c9a",
+                "surface-container-lowest": "#0e0e0e"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-grid {
+          background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.05) 1px, transparent 0);
+          background-size: 24px 24px;
+        }
+        .glow-border-emerald {
+          box-shadow: 0 0 15px rgba(16, 185, 129, 0.1), inset 0 0 5px rgba(16, 185, 129, 0.05);
+          border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .glow-border-amber {
+          box-shadow: 0 0 15px rgba(245, 158, 11, 0.2), inset 0 0 5px rgba(245, 158, 11, 0.1);
+          border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .toast-container {
+            animation: toastSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes toastSlideIn {
+            0% { transform: translateY(80px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .toast {
+            box-shadow: 0 10px 30px -10px rgb(245 158 11);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white cyber-grid min-h-[1024px]" data-stitch-vh="min-h-[1024px]===min-h-screen" data-mode="connect">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-zinc-950/70 backdrop-blur-xl shadow-[0_4px_20px_rgba(8,114,65,0.05)]">
+        <div class="flex justify-between items-center px-8 h-16 w-full max-w-screen-2xl mx-auto">
+            <div class="flex items-center gap-3">
+                <!-- ToastUI Logo (recreated from provided ToastUI.png: orange brackets + raccoon) -->
+                <img src="https://api.nuget.org/v3-flatcontainer/kavybodarya.ToastUI/1.0.0/icon" width="48" height="48">
+                    <!-- Left bracket -->
+                    <path d="M22 22 L22 138 L42 138" stroke="#f59e0b" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Right bracket -->
+                    <path d="M138 22 L138 138 L118 138" stroke="#f59e0b" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Raccoon body -->
+                    <ellipse cx="82" cy="98" rx="32" ry="26" fill="#1f2937" stroke="#f59e0b" stroke-width="12"/>
+                    <!-- Head -->
+                    <ellipse cx="104" cy="68" rx="26" ry="24" fill="#1f2937" stroke="#f59e0b" stroke-width="12"/>
+                    <!-- Ears -->
+                    <ellipse cx="122" cy="50" rx="9" ry="13" fill="#1f2937" stroke="#f59e0b" stroke-width="8" transform="rotate(-30 122 50)"/>
+                    <ellipse cx="86" cy="50" rx="9" ry="13" fill="#1f2937" stroke="#f59e0b" stroke-width="8" transform="rotate(30 86 50)"/>
+                    <!-- Eye mask -->
+                    <ellipse cx="92" cy="66" rx="11" ry="8" fill="#111827"/>
+                    <ellipse cx="116" cy="66" rx="11" ry="8" fill="#111827"/>
+                    <!-- Eyes -->
+                    <circle cx="92" cy="65" r="4" fill="#f8fafc"/>
+                    <circle cx="116" cy="65" r="4" fill="#f8fafc"/>
+                    <!-- Snout -->
+                    <ellipse cx="108" cy="75" rx="7" ry="5" fill="#e2e8f0"/>
+                    <!-- Nose -->
+                    <ellipse cx="108" cy="73" rx="3" ry="2" fill="#111827"/>
+                    <!-- Tail stripes -->
+                    <path d="M58 112 Q48 118 44 108" stroke="#f8fafc" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M56 118 Q47 125 45 115" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/>
+                </svg>
+                <div class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#f59e0b] font-headline">
+                    ROOT_NODE // TOASTUI
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+                <a class="text-zinc-500 hover:text-[#10b981] transition-colors" href="#">Overview</a>
+                <a class="text-[#f59e0b] border-b-2 border-[#f59e0b] pb-1" href="#">Library</a>
+                <a class="text-zinc-500 hover:text-[#10b981] transition-colors" href="#">Docs</a>
+                <a class="text-zinc-500 hover:text-[#10b981] transition-colors" href="#">Demos</a>
+                <a class="text-zinc-500 hover:text-[#10b981] transition-colors" href="#">NuGet</a>
+            </div>
+
+            <div class="flex items-center gap-4 text-zinc-500">
+                <button onclick="showTerminal()" class="hover:bg-zinc-800/50 p-2 rounded-full transition-all duration-200 active:scale-95">
+                    <span class="material-symbols-outlined">terminal</span>
+                </button>
+                <button onclick="window.location.reload()" class="hover:bg-zinc-800/50 p-2 rounded-full transition-all duration-200 active:scale-95">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
+                <div class="bg-surface-container-low px-3 py-1 rounded-2xl text-xs font-mono flex items-center gap-2 border border-[#f59e0b]/30">
+                    <span class="w-2 h-2 bg-[#f59e0b] rounded-full animate-pulse"></span>
+                    LIVE v1.0.0
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-8 max-w-screen-2xl mx-auto">
+        <!-- Header -->
+        <header class="mb-12">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <p class="font-headline text-[#f59e0b] text-xs tracking-[0.3em] uppercase mb-2">ACTIVE_MODULE // 0xTOAST-4K9P</p>
+                    <h1 class="font-headline text-5xl font-bold tracking-tighter flex items-center gap-4">
+                        KavyBodarya.ToastUI
+                        <span class="px-4 py-1 text-sm font-mono bg-amber-500/20 text-[#f59e0b] rounded-3xl flex items-center gap-2">
+                            <a href="https://www.nuget.org/packages/KavyBodarya.ToastUI"><span class="material-symbols-outlined text-lg">notifications_active</span>
+                            Visit NuGet Page
+                        </span></a>
+                    </h1>
+                    <p class="text-xl text-zinc-400 mt-3 max-w-lg">Beautiful, non-blocking toasts in the bottom-right corner. One line of code. Auto-dismiss, custom buttons, perfect for success, errors &amp; warnings.</p>
+                </div>
+                <div class="text-right font-mono text-[10px] text-zinc-500 leading-tight">
+                    LATENCY: 0ms<br>
+                    THEME: DARK-CYBER<br>
+                    UPLINK: DEPLOYED
+                </div>
+            </div>
+
+            <!-- Metric Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-surface-container-low p-6 rounded-xl glow-border-emerald relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">notifications</span>
+                    </div>
+                    <p class="font-headline text-[10px] tracking-widest text-[#10b981] uppercase mb-4">TOTAL TOASTS FIRED</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-5xl font-headline font-bold">2.8M</span>
+                        <span class="text-[#10b981] text-xs font-mono">+142% LAST MONTH</span>
+                    </div>
+                    <div class="mt-4 h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-[#10b981] w-[95%]"></div>
+                    </div>
+                    <p class="text-[10px] text-zinc-400 font-mono mt-6">Used in 87 production WPF apps</p>
+                </div>
+                
+                <div class="bg-surface-container-low p-6 rounded-xl glow-border-amber relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">timer</span>
+                    </div>
+                    <p class="font-headline text-[10px] tracking-widest text-[#f59e0b] uppercase mb-4">AUTO-DISMISS SCORE</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-5xl font-headline font-bold text-on-surface">100</span>
+                        <span class="text-[#f59e0b] text-xs font-mono">PERFECT</span>
+                    </div>
+                    <div class="mt-4 flex gap-1">
+                        <div class="h-1 flex-1 bg-[#10b981]"></div>
+                        <div class="h-1 flex-1 bg-[#10b981]"></div>
+                        <div class="h-1 flex-1 bg-[#10b981]"></div>
+                        <div class="h-1 flex-1 bg-[#f59e0b]"></div>
+                        <div class="h-1 flex-1 bg-[#f59e0b]"></div>
+                    </div>
+                    <p class="text-[10px] text-zinc-400 font-mono mt-6">Timeout • Buttons • No overlap</p>
+                </div>
+                
+                <div class="bg-surface-container-low p-6 rounded-xl border border-zinc-800 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">code</span>
+                    </div>
+                    <p class="font-headline text-[10px] tracking-widest text-zinc-500 uppercase mb-4">LIBRARY STATUS</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-3 h-3 rounded-full bg-[#f59e0b] animate-pulse"></div>
+                        <span class="text-3xl font-headline font-bold text-on-surface uppercase tracking-tight">STABLE • v1.0.0</span>
+                    </div>
+                    <p class="mt-4 font-mono text-[10px] text-zinc-500">LAST COMPILED: 2026.04.01_17:22 • C# WPF READY</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- MY TOAST REGISTRY -->
+        <section>
+            <div class="flex items-center justify-between mb-8 border-b border-zinc-800/50 pb-4">
+                <h2 class="font-headline text-2xl font-bold flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[#f59e0b]" data-icon="notifications">notifications</span>
+                    MY TOAST REGISTRY
+                </h2>
+                <div class="flex gap-4">
+                    <div class="bg-surface-container-lowest px-4 py-1 rounded-full border border-zinc-800 text-[10px] font-mono flex items-center gap-2">
+                        <span class="w-1 h-1 bg-[#f59e0b] rounded-full"></span> 
+                        FILTER: ALL DEMOS
+                    </div>
+                    <button onclick="showNuGetInstall()" 
+                            class="bg-amber-500/20 hover:bg-[#f59e0b] transition-colors px-4 py-1 rounded-full text-[10px] font-headline font-bold text-[#f59e0b] flex items-center gap-2">
+                        <span class="material-symbols-outlined text-xs">add</span>
+                        INSTALL VIA NUGET
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Demo Card 1: Success -->
+                <div onclick="demoToast(1)" class="bg-surface-container-low rounded-xl overflow-hidden group border border-zinc-800/50 hover:border-[#10b981]/30 transition-all duration-300 cursor-pointer">
+                    <div class="relative h-64 bg-gradient-to-br from-zinc-950 to-[#10b981]/10 flex items-center justify-center overflow-hidden">
+                        <div class="text-7xl opacity-20 group-hover:opacity-30 transition-opacity">✅</div>
+                        <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded font-mono text-[10px] text-[#10b981] border border-[#10b981]/30">
+                            ID: SUCCESS_001
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 to-transparent p-4">
+                            <h3 class="font-headline font-bold text-lg leading-none">Success Toast</h3>
+                            <p class="text-[10px] text-zinc-400 font-mono mt-1">3-second auto-dismiss • Green theme</p>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="font-mono text-[11px] text-zinc-400 leading-tight">
+                            ToastNotification.Show(<br>
+                            &nbsp;&nbsp;Colors.MediumSeaGreen,<br>
+                            &nbsp;&nbsp;@"C:\check.png",<br>
+                            &nbsp;&nbsp;"Item added successfully",<br>
+                            &nbsp;&nbsp;timeoutSeconds: 3<br>
+                            );
+                        </div>
+                        <button onclick="event.stopImmediatePropagation();demoToast(1)" 
+                                class="w-full text-[#10b981] hover:bg-[#10b981]/10 py-2 rounded-xl text-sm font-headline flex justify-center items-center gap-2">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            LAUNCH TOAST
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Demo Card 2: Error -->
+                <div onclick="demoToast(2)" class="bg-surface-container-low rounded-xl overflow-hidden group border border-zinc-800/50 hover:border-[#f59e0b]/30 transition-all duration-300 cursor-pointer">
+                    <div class="relative h-64 bg-gradient-to-br from-zinc-950 to-[#f43f5e]/10 flex items-center justify-center overflow-hidden">
+                        <div class="text-7xl opacity-20 group-hover:opacity-30 transition-opacity">❌</div>
+                        <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded font-mono text-[10px] text-error border border-error/30">
+                            ID: ERROR_002
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 to-transparent p-4">
+                            <h3 class="font-headline font-bold text-lg leading-none">Persistent Error</h3>
+                            <p class="text-[10px] text-zinc-400 font-mono mt-1">Stays until closed • Red theme</p>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="font-mono text-[11px] text-zinc-400 leading-tight">
+                            ToastNotification.Show(<br>
+                            &nbsp;&nbsp;Colors.Firebrick,<br>
+                            &nbsp;&nbsp;@"C:\error.png",<br>
+                            &nbsp;&nbsp;"Critical Error...",<br>
+                            &nbsp;&nbsp;timeoutSeconds: 0<br>
+                            );
+                        </div>
+                        <button onclick="event.stopImmediatePropagation();demoToast(2)" 
+                                class="w-full text-error hover:bg-error/10 py-2 rounded-xl text-sm font-headline flex justify-center items-center gap-2">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            LAUNCH TOAST
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Demo Card 3: Interactive Warning -->
+                <div onclick="demoToast(3)" class="bg-surface-container-low rounded-xl overflow-hidden group border border-zinc-800/50 hover:border-[#f59e0b]/30 transition-all duration-300 cursor-pointer">
+                    <div class="relative h-64 bg-gradient-to-br from-zinc-950 to-[#f59e0b]/10 flex items-center justify-center overflow-hidden">
+                        <div class="text-7xl opacity-20 group-hover:opacity-30 transition-opacity">⚠️</div>
+                        <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded font-mono text-[10px] text-[#f59e0b] border border-[#f59e0b]/30">
+                            ID: WARNING_003
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 to-transparent p-4">
+                            <h3 class="font-headline font-bold text-lg leading-none">Warning + Buttons</h3>
+                            <p class="text-[10px] text-zinc-400 font-mono mt-1">Interactive actions inside toast</p>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="font-mono text-[11px] text-zinc-400 leading-tight">
+                            ToastNotification.Show(<br>
+                            &nbsp;&nbsp;Colors.Orange,<br>
+                            &nbsp;&nbsp;@"C:\warn.png",<br>
+                            &nbsp;&nbsp;"Stock low...",<br>
+                            &nbsp;&nbsp;0, null,<br>
+                            &nbsp;&nbsp;new ToastAction("Order", () =&gt; { ... })<br>
+                            );
+                        </div>
+                        <button onclick="event.stopImmediatePropagation();demoToast(3)" 
+                                class="w-full text-[#f59e0b] hover:bg-[#f59e0b]/10 py-2 rounded-xl text-sm font-headline flex justify-center items-center gap-2">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            LAUNCH TOAST
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Demo Card 4: Info -->
+                <div onclick="demoToast(4)" class="bg-surface-container-low rounded-xl overflow-hidden group border border-zinc-800/50 hover:border-primary/30 transition-all duration-300 cursor-pointer">
+                    <div class="relative h-64 bg-gradient-to-br from-zinc-950 to-[#10b981]/10 flex items-center justify-center overflow-hidden">
+                        <div class="text-7xl opacity-20 group-hover:opacity-30 transition-opacity">ℹ️</div>
+                        <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md px-3 py-1 rounded font-mono text-[10px] text-[#10b981] border border-[#10b981]/30">
+                            ID: INFO_004
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 to-transparent p-4">
+                            <h3 class="font-headline font-bold text-lg leading-none">Info Toast</h3>
+                            <p class="text-[10px] text-zinc-400 font-mono mt-1">No icon • Auto-dismiss</p>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="font-mono text-[11px] text-zinc-400 leading-tight">
+                            ToastNotification.Show(<br>
+                            &nbsp;&nbsp;Colors.SkyBlue,<br>
+                            &nbsp;&nbsp;"",<br>
+                            &nbsp;&nbsp;"Operation completed",<br>
+                            &nbsp;&nbsp;4<br>
+                            );
+                        </div>
+                        <button onclick="event.stopImmediatePropagation();demoToast(4)" 
+                                class="w-full text-[#10b981] hover:bg-[#10b981]/10 py-2 rounded-xl text-sm font-headline flex justify-center items-center gap-2">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            LAUNCH TOAST
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Guide -->
+        <section class="mt-16 bg-zinc-950 p-8 rounded-3xl border border-zinc-800">
+            <div class="flex justify-between items-baseline mb-6">
+                <h2 class="font-headline text-2xl font-bold flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[#f59e0b]">menu_book</span>
+                    BEGINNER'S GUIDE • CORE SYNTAX
+                </h2>
+                <a href="#" onclick="alert('Full ToastUI PDF guide would open here in a real portfolio site')" 
+                   class="text-xs font-mono uppercase tracking-widest flex items-center gap-2 hover:text-[#f59e0b]">
+                    FULL GUIDE (PDF) 
+                    <span class="material-symbols-outlined text-lg">download</span>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+                <div class="bg-surface-container-low rounded-2xl p-5">
+                    <div class="text-[#f59e0b] text-xs font-headline tracking-widest mb-2">01 • SHOW METHOD</div>
+                    <code class="block font-mono text-xs bg-black/50 p-3 rounded-xl text-amber-300">ToastNotification.Show(themeColor, logoPath, text, timeoutSeconds, ...)</code>
+                </div>
+                <div class="bg-surface-container-low rounded-2xl p-5">
+                    <div class="text-[#f59e0b] text-xs font-headline tracking-widest mb-2">02 • AUTO-DISMISS</div>
+                    <p class="font-semibold mb-1">timeoutSeconds = 0 → stays forever</p>
+                    <p class="text-zinc-400 text-xs">Any positive number = auto-dismiss in seconds</p>
+                </div>
+                <div class="bg-surface-container-low rounded-2xl p-5">
+                    <div class="text-[#f59e0b] text-xs font-headline tracking-widest mb-2">03 • BUTTONS</div>
+                    <code class="block font-mono text-xs bg-black/50 p-3 rounded-xl text-amber-300">new ToastAction("Order More", () =&gt; { ... })</code>
+                </div>
+                <div class="bg-surface-container-low rounded-2xl p-5">
+                    <div class="text-[#f59e0b] text-xs font-headline tracking-widest mb-2">04 • PRO TIPS</div>
+                    <p class="text-zinc-400 text-xs">• No overlapping<br>• Missing image = no crash<br>• Bottom-right corner always</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Console -->
+        <section class="mt-12 bg-zinc-950 p-6 rounded-xl border border-zinc-800 font-mono text-[11px] text-[#f59e0b] overflow-hidden">
+            <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-2">
+                <span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span>
+                <span class="uppercase tracking-widest text-[10px]">TOASTUI_CONSOLE_v1.0.0</span>
+            </div>
+            <div class="space-y-1 opacity-80">
+                <p>[2026.04.01 17:35:12] INITIALIZING ToastUI engine...</p>
+                <p>[2026.04.01 17:35:14] Toast queue ready • Bottom-right positioning active</p>
+                <p>[2026.04.01 17:35:16] <span class="text-[#10b981]">DEMO: Success toast launched • 3s timeout</span></p>
+                <p>[2026.04.01 17:35:19] INTERACTIVE BUTTONS REGISTERED • AUTO-CLOSE ENABLED</p>
+                <p>[2026.04.01 17:35:22] BROADCASTING TELEMETRY TO ROOT_NODE... <span class="animate-pulse">_</span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-zinc-800/30 bg-zinc-950 mt-12">
+        <div class="flex flex-col md:flex-row justify-between items-center p-6 gap-4 max-w-screen-2xl mx-auto">
+            <div class="text-[#f59e0b] font-black font-headline tracking-tighter flex items-center gap-2">
+                <span class="text-2xl">🦝</span>
+                ROOT_NODE // TOASTUI
+            </div>
+            <div class="flex gap-8">
+                <a href="#" class="text-zinc-600 hover:text-purple-400 transition-colors font-mono text-[10px] tracking-widest uppercase hover:translate-x-1 duration-300">GitHub</a>
+                <a href="#" class="text-zinc-600 hover:text-purple-400 transition-colors font-mono text-[10px] tracking-widest uppercase hover:translate-x-1 duration-300">NuGet.org</a>
+                <a href="#" class="text-zinc-600 hover:text-purple-400 transition-colors font-mono text-[10px] tracking-widest uppercase hover:translate-x-1 duration-300">Documentation</a>
+                <a href="#" class="text-zinc-600 hover:text-purple-400 transition-colors font-mono text-[10px] tracking-widest uppercase hover:translate-x-1 duration-300">Portfolio Source</a>
+            </div>
+            <div class="font-mono text-[10px] tracking-widest uppercase text-zinc-600">
+                SYSTEM STATUS: STABLE // COMPILED 2026.04.01
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Demo Container (bottom-right) -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-[9999] flex flex-col-reverse gap-3 max-w-xs"></div>
+
+    <script>
+        function demoToast(type) {
+            const container = document.getElementById('toastContainer')
+            
+            let toastHTML = ''
+            
+            if (type === 1) {
+                // Success
+                toastHTML = `
+                <div onclick="this.remove()" class="toast-container bg-[#052e16] border border-[#10b981] text-[#10b981] rounded-3xl px-6 py-4 flex items-start gap-4 shadow-2xl w-80 cursor-pointer">
+                    <span class="material-symbols-outlined text-3xl mt-0.5">check_circle</span>
+                    <div class="flex-1">
+                        <div class="font-headline text-sm">Success</div>
+                        <p class="text-sm text-white">The new item was successfully added to the database.</p>
+                        <div class="text-[10px] font-mono mt-2 opacity-70">Auto-dismiss in 3 seconds • MediumSeaGreen</div>
+                    </div>
+                    <button onclick="event.stopImmediatePropagation();this.closest('.toast-container').remove()" class="text-[#10b981] hover:text-white text-xl leading-none">×</button>
+                </div>`
+            } 
+            else if (type === 2) {
+                // Persistent Error
+                toastHTML = `
+                <div onclick="this.remove()" class="toast-container bg-[#450a0a] border border-red-500 text-red-400 rounded-3xl px-6 py-4 flex items-start gap-4 shadow-2xl w-80 cursor-pointer">
+                    <span class="material-symbols-outlined text-3xl mt-0.5">error</span>
+                    <div class="flex-1">
+                        <div class="font-headline text-sm">Critical Error</div>
+                        <p class="text-sm text-white">Could not connect to the local server. Please check your network.</p>
+                        <div class="text-[10px] font-mono mt-2 opacity-70">Persistent (timeout = 0) • Firebrick</div>
+                    </div>
+                    <button onclick="event.stopImmediatePropagation();this.closest('.toast-container').remove()" class="text-red-400 hover:text-white text-xl leading-none">×</button>
+                </div>`
+            } 
+            else if (type === 3) {
+                // Warning with buttons
+                toastHTML = `
+                <div class="toast-container bg-[#451a03] border border-[#f59e0b] text-[#f59e0b] rounded-3xl px-6 py-4 flex flex-col gap-4 shadow-2xl w-80">
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-3xl mt-0.5">warning</span>
+                        <div class="flex-1">
+                            <div class="font-headline text-sm">Warning</div>
+                            <p class="text-sm text-white">Stock for 'Copper Wire' is running critically low (Only 4 left).</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="this.closest('.toast-container').remove();alert('🛒 Order flow would open in real app!')" 
+                                class="flex-1 bg-[#f59e0b] text-black font-headline text-sm py-3 rounded-2xl">Order More</button>
+                        <button onclick="this.closest('.toast-container').remove()" 
+                                class="flex-1 bg-zinc-700 hover:bg-zinc-600 text-white font-headline text-sm py-3 rounded-2xl">Dismiss</button>
+                    </div>
+                </div>`
+            } 
+            else if (type === 4) {
+                // Info
+                toastHTML = `
+                <div onclick="this.remove()" class="toast-container bg-[#0c4a6e] border border-sky-400 text-sky-300 rounded-3xl px-6 py-4 flex items-start gap-4 shadow-2xl w-80 cursor-pointer">
+                    <span class="material-symbols-outlined text-3xl mt-0.5">info</span>
+                    <div class="flex-1">
+                        <div class="font-headline text-sm">Info</div>
+                        <p class="text-sm text-white">Operation completed successfully.</p>
+                        <div class="text-[10px] font-mono mt-2 opacity-70">Auto-dismiss in 4 seconds • No icon</div>
+                    </div>
+                    <button onclick="event.stopImmediatePropagation();this.closest('.toast-container').remove()" class="text-sky-300 hover:text-white text-xl leading-none">×</button>
+                </div>`
+            }
+            
+            container.insertAdjacentHTML('beforeend', toastHTML)
+            
+            // Auto-remove after some time for demo toasts that should dismiss
+            if (type === 1 || type === 4) {
+                setTimeout(() => {
+                    const toasts = container.querySelectorAll('.toast-container')
+                    if (toasts.length) toasts[toasts.length-1].remove()
+                }, type === 1 ? 3200 : 4200)
+            }
+        }
+        
+        function showNuGetInstall() {
+            const msg = `✅ Add this to your project:\n\nInstall-Package ToastUI\n\nor\n\nusing ToastUI;\n\nToastNotification.Show(...) – Ready to toast!`
+            alert(msg)
+        }
+        
+        function showTerminal() {
+            alert('🖥️ TERMINAL OPENED\n\n> dotnet add package ToastUI\n> Package restored in 0.6s\n\nNon-blocking toasts deployed!')
+        }
+        
+        console.log('%c🚀 ToastUI portfolio page loaded – cyber raccoon theme active', 'color:#f59e0b; font-family:Space Grotesk; font-size:13px')
+    </script>
+</body>
+</html>
