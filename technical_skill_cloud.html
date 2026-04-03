@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ATELIER | Technical Skills &amp; Proficiencies</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+  /* Increased opacity from 0.25 to 0.65 for visibility */
+  --lg-bg-color: rgba(255, 255, 255, 0.65); 
+  --lg-highlight: rgba(255, 255, 255, 0.9);
+  --lg-text: #1a1c1a; /* Sharper dark text */
+  --lg-red: #fb4268;
+  --lg-grey: #444739;
+}
+
+        /* Base Glass Container Logic */
+        .glass-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: transparent;
+            overflow: hidden;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.05), 0 0 20px rgba(0, 0, 0, 0.05);
+            color: var(--lg-text);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+        }
+
+        /* Mica Lift Effect */
+        .glass-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(47, 52, 48, 0.12);
+        }
+
+        .glass-filter,
+        .glass-overlay,
+        .glass-specular {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .glass-filter {
+  z-index: 0;
+  /* Stronger blur and slight darkening for contrast */
+  backdrop-filter: blur(20px) saturate(160%) brightness(0.98); 
+  -webkit-backdrop-filter: blur(20px) saturate(160%) brightness(0.98);
+}
+
+        /* Mica Texture & Gradient */
+        .glass-overlay {
+  z-index: 1;
+  /* Subtle gradient makes the card feel solid yet translucent */
+  background: linear-gradient(
+    135deg, 
+    var(--lg-bg-color) 0%, 
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+        .glass-specular {
+  z-index: 2;
+  /* Stronger outer border so cards don't disappear into the BG */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  /* Internal glow to define the shape */
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+}
+.glass-container {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+        .glass-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+
+        /* Nav Override */
+        #top-nav:hover {
+            transform: translateX(-50%) translateY(0); /* Prevent nav from lifting */
+        }
+
+        /* Apply to specific existing elements */
+        #top-nav, .skill-card {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f8f5f0;
+            color: #2f3430;
+            min-height: 100vh;
+        }
+
+        .noto-serif { font-family: 'Noto Serif', serif; }
+
+        /* Soft elegant background with fashion imagery */
+        .skill-cloud-bg {
+            background: #f8f5f0;
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(240, 224, 200, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(228, 226, 225, 0.35) 0%, transparent 50%);
+        }
+
+        .skill-cloud-bg::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXm73ShD49CW9dxMbtSTCo8pJ6qUMxfD8tEfRPydK-0ojEOxq7JHK1bfstgFhHLiixAS6N7txbowAryoQIDjmBv0eSqPhe0nSDWJxfzW8Z2eB9WTb6WZp7NpXSKLHifbVz_W7XbqGiT5N13pjnsp4U-Pm724brB3_BqDP5Ax-fjvzOxiZGwKRC2QM1P8ysGhfkTaUOdI6_tpfbCkP4HhkO1yEJszAlb-Zu36QvMcE96eeG2Oj8z0uI3R5awmf9RJx31nRUS1t1aMc') no-repeat left center;
+            background-size: cover;
+            opacity: 0.12;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .skill-cloud-bg::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxwT5rcNBGhqCvO0RpOC6pmXnuARFjoty2mfltVYGfPoRomiiQ0q_nenA14LUzxhe6kQzSkbjmHRMlmUB_s3pThWE1zH3v4ePsWF0Dj9-kFz10eoscpeesazP_-5kzDl69We2SOu6_mJM4TWTbFWNauAAseEBJjPqeto-5044T-m4oeV11oo6XP9qGvQs28Q33CUsBI8CgQ0dj1q3u-gH-Nj4H9-Zyef0hv5oHDXcwuOjbXhsjnSYI4lINFXTh4LZ5HetiGc4Szu8') no-repeat right center;
+            background-size: cover;
+            opacity: 0.09;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating Top Ribbon Navbar */
+        #top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Rectangular Glass Cards - Popping effect */
+        .skill-card {
+            position: absolute;
+            border-radius: 20px;
+            text-align: center;
+            animation: floatGentle 32s infinite linear;
+            z-index: 2;
+        }
+
+        @keyframes floatGentle {
+            0%   { transform: translate(0, 0) rotate(0deg); }
+            25%  { transform: translate(22px, -32px) rotate(4deg); }
+            50%  { transform: translate(-18px, 28px) rotate(-5deg); }
+            75%  { transform: translate(26px, -18px) rotate(3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Adjust hover to not conflict with floating animation */
+        .skill-card:hover {
+            animation-play-state: paused;
+            scale: 1.05;
+        }
+
+        .card-1 { animation-delay: 0s; }
+        .card-2 { animation-delay: -9s; }
+        .card-3 { animation-delay: -17s; }
+        .card-4 { animation-delay: -4s; }
+        .card-5 { animation-delay: -22s; }
+        .card-6 { animation-delay: -12s; }
+        .card-7 { animation-delay: -26s; }
+        .card-8 { animation-delay: -6s; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#695e4a",
+                        "on-surface": "#2f3430"
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif"],
+                        body: ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="skill-cloud-bg">
+
+    <!-- Floating Top Ribbon Navbar -->
+    <nav id="top-nav" class="glass-container rounded-full">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content px-8 py-4 flex justify-between items-center w-full">
+            <div class="text-2xl font-light tracking-widest noto-serif text-neutral-900">ATELIER</div>
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wider">
+                <a href="fashionhome.html" class="text-neutral-900 font-medium">Home</a>
+                <a href="lookbook_gallery.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Lookbook</a>
+                <a href="design_process.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Process</a>
+                <a href="technical_skill_cloud.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Skills</a>
+            </div>
+            <span class="material-symbols-outlined cursor-pointer text-neutral-900 hover:opacity-80 transition-opacity">shopping_bag</span>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 md:px-12 max-w-screen-2xl mx-auto">
+
+        <!-- Header -->
+        <header class="text-center mb-20 fade-in">
+            <span class="inline-block text-xs uppercase tracking-[0.3em] text-secondary font-medium mb-4">The Art of Execution</span>
+            <h1 class="noto-serif text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tighter">
+                Technical Skills &amp; Proficiencies
+            </h1>
+            <p class="max-w-2xl mx-auto mt-6 text-lg text-neutral-600">
+                Where centuries of tradition meet contemporary mastery.
+            </p>
+        </header>
+
+        <!-- Skill Cloud - Rectangular Glass Cards -->
+        <div class="relative w-full h-[720px] mb-24 fade-in">
+            <!-- Card 1 -->
+            <div class="skill-card card-1 w-52 h-52 glass-container" style="left: 12%; top: 18%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-2xl block text-neutral-900">Textiles</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">FABRIC ENGINEERING</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="skill-card card-2 w-44 h-44 glass-container" style="left: 28%; top: 8%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-xl block text-neutral-900">Draping</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">HAUTE COUTURE</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="skill-card card-3 w-48 h-48 glass-container" style="left: 52%; top: 22%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-2xl block text-neutral-900">CAD</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">DIGITAL DESIGN</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="skill-card card-4 w-40 h-40 glass-container" style="left: 6%; top: 52%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-lg block text-neutral-900">Patterning</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">GEOMETRY</span>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="skill-card card-5 w-52 h-52 glass-container" style="left: 38%; top: 55%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-xl block text-neutral-900">Sustainable</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">ECO SYSTEMS</span>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="skill-card card-6 w-48 h-48 glass-container" style="left: 68%; top: 48%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-xl block text-neutral-900">Tailoring</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">SAVILE ROW</span>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="skill-card card-7 w-36 h-36 glass-container" style="left: 82%; top: 28%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-base block text-neutral-900">Color</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">THEORY</span>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="skill-card card-8 w-40 h-40 glass-container" style="left: 18%; top: 68%;">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content h-full flex flex-col items-center justify-center p-4">
+                    <span class="font-headline text-base block text-neutral-900">Goods</span>
+                    <span class="font-label text-xs uppercase tracking-widest text-secondary mt-1">ACCESSORY DESIGN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extended Content -->
+        <div class="mb-24 fade-in">
+            <h2 class="noto-serif text-4xl text-center mb-16">Mastery in Every Detail</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Textiles &amp; Fabric Engineering</h3>
+                        <p class="text-neutral-600">Sourcing and testing rare natural fibers from heritage mills in Italy, France, and India.</p>
+                    </div>
+                </div>
+
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Draping &amp; Toile Making</h3>
+                        <p class="text-neutral-600">Transforming flat sketches into three-dimensional forms on the mannequin.</p>
+                    </div>
+                </div>
+
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Pattern Engineering &amp; CAD</h3>
+                        <p class="text-neutral-600">Precision digital pattern making combined with traditional hand drafting.</p>
+                    </div>
+                </div>
+
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Sustainable Practices</h3>
+                        <p class="text-neutral-600">Zero-waste pattern cutting, upcycling, and ethical sourcing.</p>
+                    </div>
+                </div>
+
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Artisanal Tailoring</h3>
+                        <p class="text-neutral-600">French seams, hand-rolled hems, and invisible couture finishes.</p>
+                    </div>
+                </div>
+
+                <div class="glass-container rounded-3xl">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+                    <div class="glass-content p-8">
+                        <h3 class="noto-serif text-2xl mb-4 text-neutral-900">Color &amp; Surface Design</h3>
+                        <p class="text-neutral-600">Natural dyeing and tonal layering that creates depth and emotion.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="max-w-3xl mx-auto text-center mb-24 fade-in">
+            <p class="italic text-2xl leading-relaxed text-neutral-700">
+                "Technical mastery is the invisible foundation upon which creative intuition builds something truly timeless."
+            </p>
+            <div class="mt-8 text-sm tracking-widest text-secondary">— Kavy, Creative Director</div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-20 px-12 border-t border-neutral-200/30">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-screen-2xl mx-auto">
+            <div class="text-lg font-light tracking-widest noto-serif text-neutral-900 mb-8 md:mb-0">ATELIER</div>
+            <div class="flex gap-12 mb-8 md:mb-0">
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">Instagram</a>
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">LinkedIn</a>
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">Contact</a>
+            </div>
+            <div class="text-xs text-neutral-500">© 2026 ATELIER. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <!-- Intersection Observer Script for scroll animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        });
+    </script>
+
+    <!-- SVG Filter essential for the glass distortion -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <filter id="lensFilter" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur" />
+    <feComponentTransfer in="blur" result="betterBlur">
+        <feFuncA type="linear" slope="1.2" />
+    </feComponentTransfer>
+  </filter>
+</svg>
+</body>
+</html>

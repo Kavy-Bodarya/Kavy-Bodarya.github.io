@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ATELIER | Process • From Sketch to Runway</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f8f5f0;
+            color: #2f3430;
+        }
+
+        .noto-serif { 
+            font-family: 'Noto Serif', serif; 
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 28px;
+            box-shadow: 0 12px 45px rgba(47, 52, 48, 0.12);
+            transition: all 700ms cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 25px 70px -15px rgba(47, 52, 48, 0.18);
+        }
+
+        /* Floating Top Ribbon Navbar */
+        #top-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 9999px;
+            box-shadow: 0 10px 40px rgba(47, 52, 48, 0.12);
+            transition: all 0.4s ease;
+            padding: 14px 32px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#695e4a",
+                        "on-surface": "#2f3430",
+                        "on-surface-variant": "#5f5e5e"
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif"],
+                        body: ["Inter"],
+                        label: ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Floating Top Ribbon Navbar -->
+    <nav id="top-nav" class="glass">
+        <div class="flex justify-between items-center w-full">
+            <div class="text-2xl font-light tracking-widest noto-serif text-neutral-900">ATELIER</div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wider">
+                <a href="fashionhome.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Home</a>
+                <a href="lookbook_gallery.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Lookbook</a>
+                <a href="design_process.html" class="text-neutral-900 font-medium">Process</a>
+                <a href="technical_skill_cloud.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Skills</a>
+            </div>
+
+            <button class="text-2xl text-neutral-900 hover:opacity-80 transition-opacity">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 md:px-12 max-w-screen-2xl mx-auto">
+        
+        <!-- Header -->
+        <header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 fade-in">
+            <div class="max-w-2xl">
+                <span class="text-secondary text-xs uppercase tracking-[0.3em] font-medium">Methodology</span>
+                <h1 class="noto-serif text-6xl md:text-7xl lg:text-8xl font-light leading-none tracking-tighter mt-4">
+                    From Sketch to Runway
+                </h1>
+            </div>
+            <div class="md:text-right max-w-xs text-neutral-600">
+                A meticulous journey where ethereal concepts are transformed into structural reality through the hands of master artisans.
+            </div>
+        </header>
+
+        <!-- Process Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in">
+            
+            <!-- Step 1 -->
+            <div class="glass-card p-8 group">
+                <div class="flex justify-between items-start mb-10">
+                    <span class="font-headline text-5xl text-neutral-200">01</span>
+                    <span class="material-symbols-outlined text-3xl text-secondary">edit_note</span>
+                </div>
+                <div class="mb-8 aspect-[4/3] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjACHwN-puhU5PA83m8jsNMZetVks_QQiMZAQjmaXQE5v_mROx-L4ZTL2I3rzrAzdds2tdxwlYm7QePVNS4gum0f1squgF0tQ8NKVDLcjpFSswSrGUihsz4IwU1_OUfWv1Oba4s7a0oOHS4Gnn3ClfN7zukttTXABRJgDDf8ajOTAYDpyk9ZT8qqZgNF1BibndvzIdyCksAGYNBwGKR2eghxEhSCMkr1XnLv7aDHpsuosV7ZLpQsjd5l-8xJKN_x-mEjYbi6CZzZU"
+                         alt="Fashion sketches">
+                </div>
+                <h3 class="noto-serif text-2xl mb-3">Conceptualization</h3>
+                <p class="text-neutral-600 text-[15px] leading-relaxed">
+                    The genesis of every collection begins with emotive sketching — capturing fluidity of form and the initial architectural silhouette.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="glass-card p-8 group">
+                <div class="flex justify-between items-start mb-10">
+                    <span class="font-headline text-5xl text-neutral-200">02</span>
+                    <span class="material-symbols-outlined text-3xl text-secondary">layers</span>
+                </div>
+                <div class="mb-8 aspect-[4/3] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyYka3ALTQX5iSbdzaCWyeNq1nGJiDfHzF1lubnsRNibTzRcHCyuugK12m_om01uJULZsWymF2dTu4GnQkp1Q6LcIH-sVUX_8Wg5p-SZBj5z7eeHKOWQsMlRjQWsfuB2oiD0LF2dgvHSoKcNWoi7CmvrqI7tohfUuLQbS1KsDX_Doq7Mq2XWLi5KiaHxCRvv6yUcTjtGQCkYkFncjWjj8Ykatvfx43OhOkUAaJn1UtQdmqdgkJyvoNS6piujGBnMJ0YeJ05vvVsyI"
+                         alt="Draping on mannequin">
+                </div>
+                <h3 class="noto-serif text-2xl mb-3">Toile &amp; Draping</h3>
+                <p class="text-neutral-600 text-[15px] leading-relaxed">
+                    Translating 2D sketches into 3D muslin prototypes. This stage focuses on the movement of fabric against the human form.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="glass-card p-8 group">
+                <div class="flex justify-between items-start mb-10">
+                    <span class="font-headline text-5xl text-neutral-200">03</span>
+                    <span class="material-symbols-outlined text-3xl text-secondary">precision_manufacturing</span>
+                </div>
+                <div class="mb-8 aspect-[4/3] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJblF5SQjB46zuwiO_GlIAfYF_306Nnc2gT934v9gm_IXmD7YfrjANLV34tUS3NkBNJFgBgS7GYe9jOOPbIdWYUjcVvQswNkqq1eJvEQXqAVSkvfyVX_em0BYwBTNN3ch18yYiZqmX1QWaF4eQPJsEzq5ZK8-ls9thom1UTsflzU6i0s9XXBbB9slT7siWKJJe0hj0X6bqFcYO22GmgxWiKcl7KRHIIsjl5u_Ev-ILlydAMcIIvdv0YLf-RbfeuGDZCYMstBwBD58"
+                         alt="Sewing machine detail">
+                </div>
+                <h3 class="noto-serif text-2xl mb-3">Technical Assembly</h3>
+                <p class="text-neutral-600 text-[15px] leading-relaxed">
+                    The rigorous process of final garment construction using artisanal sewing techniques and couture finishing details.
+                </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="glass-card p-8 group">
+                <div class="flex justify-between items-start mb-10">
+                    <span class="font-headline text-5xl text-neutral-200">04</span>
+                    <span class="material-symbols-outlined text-3xl text-secondary">auto_awesome</span>
+                </div>
+                <div class="mb-8 aspect-[4/3] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf5mAoyVb6TAEIidTpwVMr4N6bL4N8-Zna8bv2AhMBeSvdbEWBZM9EPzPsONc7IC4u0j0rpk5l1uEGr46zRN0NZWqePE4xxa2NVZwFUucmDUFfL-0YFsl6xKUCEL4dL_1nkDd9fvzMEk9z_IziOde6xWylkMSUZYLIP9VSQ2XOjPbEeSchwOMrUFWIy9GgscgBzS9t3E9JorIvt44apRUQAkiDi4dA5Pq4Egx-Lwr7qrQFPBru8UF8m1hHzZybnCJN7r_UT0IbJwQ"
+                         alt="Runway presentation">
+                </div>
+                <h3 class="noto-serif text-2xl mb-3">The Presentation</h3>
+                <p class="text-neutral-600 text-[15px] leading-relaxed">
+                    The final manifestation where garment, lighting, and movement converge into a singular sensory experience on the runway.
+                </p>
+            </div>
+        </div>
+
+        <!-- Detail Section -->
+        <section class="mt-32 flex flex-col lg:flex-row gap-16 items-center fade-in">
+            <div class="flex-1 relative">
+                <div class="absolute -top-12 -left-12 w-52 h-52 bg-secondary/10 rounded-full blur-3xl"></div>
+                <img class="w-full aspect-video object-cover rounded-3xl shadow-xl" 
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLt36XaRj9oCncV0zkvZzzbzBcCsSYk2cRq0IleTJ3tdtOaoBgpn5qQ5RhNuSv77aVb3K0V7Cp_hCTUglrQcOOKizSBgucEkrjb0JUNNgfooENgvPCLVMA4Sf98aKLQnkF4YISdUe1-TcQb8J76yEvfe1O_6IiE0Stw21NecPGPjqyrqO3lpiFQOa-wG0y3izhM5E8tFuJ_O56TdsIAeMq7tTbMe_ndUhxyOCUXE7GqSxdTPIrtF_oDUTmDrHk-DIbUEe5hmqGkfY"
+                     alt="Hand embroidery detail">
+            </div>
+
+            <div class="flex-1 max-w-xl">
+                <h2 class="noto-serif text-4xl md:text-5xl leading-tight mb-10">
+                    Meticulous Craftsmanship as a Standard.
+                </h2>
+                
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <span class="material-symbols-outlined text-4xl text-secondary shrink-0">architecture</span>
+                        <div>
+                            <h4 class="font-medium text-lg">Pattern Engineering</h4>
+                            <p class="text-neutral-600 mt-2 text-[15px]">Complex geometric drafting ensuring every seam aligns with mathematical precision to the human silhouette.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <span class="material-symbols-outlined text-4xl text-secondary shrink-0">straighten</span>
+                        <div>
+                            <h4 class="font-medium text-lg">Material Science</h4>
+                            <p class="text-neutral-600 mt-2 text-[15px]">Sourcing rare textiles from sustainable mills and testing for weight, drape, and light refraction properties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-20 px-12 border-t border-neutral-200/30">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-screen-2xl mx-auto">
+            <div class="text-lg font-light tracking-widest noto-serif text-neutral-900 mb-8 md:mb-0">ATELIER</div>
+            <div class="flex gap-12 mb-8 md:mb-0">
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">Instagram</a>
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">LinkedIn</a>
+                <a href="#" class="text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">Contact</a>
+            </div>
+            <div class="text-xs text-neutral-500">© 2026 ATELIER. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <!-- Common JS for animations -->
+    <script src="common.js"></script>
+</body>
+</html>

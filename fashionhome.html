@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ATELIER | The Sensory Hook • SS 2025</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f8f5f0;
+            color: #2f3430;
+            padding: 1.5rem 1rem;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            position: relative;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 28px;
+            box-shadow: 0 12px 45px rgba(47, 52, 48, 0.12);
+            overflow: hidden;
+        }
+
+        .glass::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, rgba(255,255,255,0.25), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 28px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.85rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.95rem;
+            border: 1px solid rgba(255,255,255,0.7);
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.78rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: #2f3430;
+        }
+
+        .card-subtitle {
+            font-size: 0.96rem;
+            color: #695e4a;
+            margin-top: 4px;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar Styles */
+        #top-nav {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="top-nav" class="glass fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-5xl">
+        <div class="nav-content py-5 px-8 flex justify-between items-center">
+            <div class="logo text-2xl font-light tracking-widest font-headline">ATELIER</div>
+            
+            <div class="hidden md:flex items-center gap-9 text-sm font-medium tracking-wider">
+                <a href="fashionhome.html" class="text-[#2f3430] font-medium">Home</a>
+                <a href="lookbook_gallery.html" class="hover:text-[#695e4a] transition-colors">Lookbook</a>
+                <a href="design_process.html" class="hover:text-[#695e4a] transition-colors">Process</a>
+                <a href="technical_skill_cloud.html" class="hover:text-[#695e4a] transition-colors">Skills</a>
+            </div>
+
+            <button class="text-2xl text-[#2f3430]">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-16 container">
+
+        <!-- HERO -->
+        <div class="glass p-12 md:p-16 col-span-1 lg:col-span-2 fade-in">
+            <span class="inline-block px-5 py-2 bg-white/60 backdrop-blur-md rounded-2xl text-xs tracking-[0.15em] font-medium mb-6 border border-white/70">
+                HAUTE COUTURE • SPRING SUMMER 2025
+            </span>
+            <h1 class="card-title text-6xl md:text-7xl lg:text-8xl leading-none mb-8">
+                The Sensory<br>
+                <span class="italic font-light text-[#695e4a]">Hook</span>
+            </h1>
+            <p class="max-w-lg text-lg leading-relaxed mb-10">
+                A quiet exploration of form, texture, and light. 
+                Where centuries-old craftsmanship meets contemporary elegance.
+            </p>
+            <div class="flex flex-wrap gap-5">
+                <a href="lookbook_gallery.html" 
+                   class="glass px-10 py-5 text-sm font-medium tracking-widest hover:bg-white/90 transition-all">
+                    EXPLORE THE COLLECTION
+                </a>
+                <a href="design_process.html" 
+                   class="px-8 py-5 text-sm font-medium tracking-widest flex items-center gap-3 hover:text-[#695e4a]">
+                    DISCOVER OUR PROCESS →
+                </a>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="glass p-10 fade-in">
+            <div class="card-header">
+                <div class="icon">👤</div>
+                <div>
+                    <h3 class="card-title">Kavy • Founder &amp; Creative Director</h3>
+                    <p class="card-subtitle">Est. 1992 • Milan / Surat</p>
+                </div>
+            </div>
+            <div class="card-content text-[15.5px] leading-relaxed">
+                Trained in Milan and rooted in the rich textile heritage of India, 
+                I create garments that honor both architectural precision and emotional resonance.
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="glass p-10 fade-in">
+            <div class="card-header">
+                <div class="icon">🌿</div>
+                <div>
+                    <h3 class="card-title">Our Values</h3>
+                    <p class="card-subtitle">Craft • Integrity • Timelessness</p>
+                </div>
+            </div>
+            <div class="space-y-6 text-sm leading-relaxed">
+                <div>→ Sustainable sourcing from heritage mills</div>
+                <div>→ Zero-waste pattern engineering</div>
+                <div>→ Hand-finished couture details</div>
+                <div>→ Slow fashion philosophy</div>
+            </div>
+        </div>
+
+        <!-- Current Collection -->
+        <div class="glass p-10 fade-in">
+            <div class="card-header">
+                <div class="icon">🧥</div>
+                <div>
+                    <h3 class="card-title">SS 2025 Collection</h3>
+                    <p class="card-subtitle">The Sensory Hook</p>
+                </div>
+            </div>
+            <div class="card-content">
+                Sculptural silhouettes in mulberry silk, organza, and hand-embroidered linen. 
+                A celebration of movement, light, and quiet luxury.
+            </div>
+            <a href="lookbook_gallery.html" class="mt-8 inline-block text-xs uppercase tracking-widest border-b border-[#695e4a] pb-1 hover:text-[#695e4a]">
+                View Full Lookbook →
+            </a>
+        </div>
+
+        <!-- Techniques -->
+        <div class="glass p-10 fade-in">
+            <div class="card-header">
+                <div class="icon">🪡</div>
+                <div>
+                    <h3 class="card-title">Signature Techniques</h3>
+                    <p class="card-subtitle">Mastered in Atelier</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-4">French Seams</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-4">Hand-rolled Hem</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-4">Bias Draping</div>
+                <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-4">Soutache Embroidery</div>
+            </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="glass p-12 col-span-1 lg:col-span-2 fade-in">
+            <h3 class="card-title text-3xl mb-10">The Atelier Philosophy</h3>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <div class="text-[#695e4a] text-2xl mb-4">01</div>
+                    <div class="font-medium mb-2">Heritage</div>
+                    <p class="text-sm leading-relaxed">We preserve centuries-old techniques while allowing them to breathe with contemporary life.</p>
+                </div>
+                <div>
+                    <div class="text-[#695e4a] text-2xl mb-4">02</div>
+                    <div class="font-medium mb-2">Architecture</div>
+                    <p class="text-sm leading-relaxed">The body is our canvas. Every garment is sculpted like living architecture.</p>
+                </div>
+                <div>
+                    <div class="text-[#695e4a] text-2xl mb-4">03</div>
+                    <div class="font-medium mb-2">Emotion</div>
+                    <p class="text-sm leading-relaxed">Clothing should be felt before it is seen — creating moments of quiet confidence.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected Works -->
+        <div class="glass p-10 col-span-1 lg:col-span-2 fade-in">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="card-title">Selected Works</h3>
+                    <p class="card-subtitle">Recent Collections</p>
+                </div>
+                <a href="lookbook_gallery.html" class="text-xs uppercase tracking-widest hover:underline">View All →</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-white/70 group">
+                    <div class="h-64 bg-cover transition-transform duration-700 group-hover:scale-105" 
+                         style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgRPmfjzWHdRAM-FXZ3g3iqrz6zS9UAv-XRoEoavBkf_kAS6XM8evrqLlUtrruOBLPrnHGNwJ0oSf4izKHl15_MkvA8N-IHwMO650L72Q0w50hNsyDNQuSrhEL205dbadrS9XhcHK3lWjiuk4Wp2Ajhjk3s2hRJAa_FVU4lj_3PuVr6dE2x9Xf1WhJ_AvsNHRUWy8Vy7LS1kor0Pq6NmjJ2ppeq2iGfqSn8IneTLVba-KxE05A6cAdr_SArqzm6vQupK05OreNXCM')"></div>
+                    <div class="p-6">
+                        <div class="font-medium">Structured Serenity</div>
+                        <div class="text-xs text-[#695e4a]">SS 2024</div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-white/70 group">
+                    <div class="h-64 bg-cover transition-transform duration-700 group-hover:scale-105" 
+                         style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnr7EWthPwJ2IlLMRdG2G7Ka0JLdIbr2KYob9UpVwGaj-yiDX_7Cu71a9qc04sa9A6rKUYnPjbt5RGpJpPDp_TfvAQDHMvuzrYpok4KLDJz86Ydfs6S4IjHFq7OgBdfNJNO-1437t5hXQxrrR9cprlSVNcDD9qSI2mTp-EKtYSNZ_wxaPJQquVEnEyU8aNM6p0NKCjGRI2zrY5QkNyZ4sjfKzTiXj445yjpDMsStk2m_l_MVaU84qVuI_c8mF8kpHkDVuiyJ_btQY')"></div>
+                    <div class="p-6">
+                        <div class="font-medium">Fluidity in Motion</div>
+                        <div class="text-xs text-[#695e4a]">AW 2024</div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-white/70 group">
+                    <div class="h-64 bg-cover transition-transform duration-700 group-hover:scale-105" 
+                         style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2VxS407lp-jDT8XaHkDOCYU6xJbfr-_Pk-id21CpXDRwnBvCX3UpBrBVmCXOaQWMirrPuQzSiSDvcI-Jh5J2HA58f8nnRy_3WDINZKuBPzuUfHbmU-z-HtI_USSGR30diuUoGKsbhKqVfdZdyK0S16p9aPEP161DY3b0KyejO9-TIu4i9iQjpGvikJIUZAf__JIHv2Oa9QrxXJpaXeWzn9l6ze8K1pN9Tkxl6jskmL5Css7W93k3S14Oh6e6fBuxJ9Tu3GowVK80')"></div>
+                    <div class="p-6">
+                        <div class="font-medium">Monochrome Depth</div>
+                        <div class="text-xs text-[#695e4a]">SS 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Statement -->
+        <div class="glass p-14 text-center col-span-1 lg:col-span-2 fade-in">
+            <p class="text-2xl italic leading-relaxed max-w-2xl mx-auto">
+                "We do not just design clothes.<br>
+                We craft moments of quiet confidence that linger long after the garment is worn."
+            </p>
+            <div class="mt-10 text-xs tracking-widest text-[#695e4a]">— Kavy, Creative Director</div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-xs tracking-widest text-[#5f5e5e]/70 pb-12">
+        © 2026 ATELIER • MILAN • PARIS • LONDON • SURAT
+    </footer>
+
+    <!-- Common JS -->
+    <script src="common.js"></script>
+
+    <!-- Final Navbar Fix -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('top-nav');
+            if (nav) {
+                const keepGlass = () => {
+                    nav.style.background = 'rgba(255, 255, 255, 0.78)';
+                    nav.style.backdropFilter = 'blur(24px) saturate(180%)';
+                    nav.style.boxShadow = '0 12px 45px rgba(47, 52, 48, 0.12)';
+                };
+                window.addEventListener('scroll', keepGlass);
+                keepGlass();
+            }
+        });
+    </script>
+</body>
+</html>
